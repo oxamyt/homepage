@@ -1,0 +1,371 @@
+@import "normalize.css";
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+$main-font: "Inter";
+$main-font-color: #6d6d6d;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $main-font;
+  background: linear-gradient(#edede9, #e7ecef);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 1rem;
+}
+
+.header {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+
+  .background {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#e4c1f9, #a9def9);
+    clip-path: polygon(0 0, 100% 0, 100% 51%, 0% 100%);
+
+    z-index: -1;
+  }
+
+  .image-container {
+    position: relative;
+    text-align: center;
+
+    .heading-text {
+      font-size: 3rem;
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fefae0;
+    }
+  }
+
+  .about-me {
+    padding: 1rem;
+    width: 30rem;
+    background-color: #fffffa;
+    color: $main-font-color;
+
+    .description {
+      font-size: calc((60vw - 30rem) / (80 - 30) * (1.5 - 1) + 1rem);
+      width: 100%;
+    }
+  }
+
+  .icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 1rem;
+    .icon {
+      width: 2rem;
+      transition: 0.5s;
+    }
+    .icon:hover {
+      transform: scale(1.1);
+      transition: 0.5s;
+    }
+  }
+}
+
+.main {
+  padding: 2rem;
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    .project {
+      background-color: #fffffa;
+      box-shadow: 10px 10px 29px -6px rgba(0, 0, 0, 0.66);
+      transition: 0.5s;
+      .screenshot {
+        height: 60%;
+        width: 100%;
+      }
+
+      .project-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem 0 1rem;
+        .project-icons {
+          display: flex;
+          gap: 20px;
+        }
+        .icon {
+          width: 2rem;
+        }
+      }
+
+      .project-heading {
+        font-size: 1.5rem;
+        color: #212529;
+      }
+
+      .project-description {
+        font-size: 1rem;
+        color: $main-font-color;
+        padding-left: 1rem;
+        margin: 0 auto;
+      }
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+    }
+  }
+}
+
+.footer {
+  background: linear-gradient(#e4c1f9, #a9def9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: auto;
+
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    .heading-text {
+      color: #212529;
+      margin: 0;
+      padding: 1rem;
+    }
+    .cover-text {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      gap: 5px;
+      color: #212529;
+      .icon {
+        width: 2rem;
+      }
+    }
+    .icons {
+      display: flex;
+      gap: 20px;
+      padding: 1rem;
+
+      .icon {
+        width: 3rem;
+        transition: 0.5s;
+      }
+      .icon:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+      }
+    }
+  }
+  .img-container {
+    .my-image {
+      border-radius: 20px;
+      width: 25rem;
+      height: 25rem;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main {
+    .projects {
+      .project {
+        .project-info {
+          .project-heading {
+            font-size: 0.8rem;
+          }
+          .project-icons {
+            .icon {
+              width: 1rem;
+            }
+          }
+        }
+        .project-description {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    .img-container {
+      .my-image {
+        width: 15rem;
+        height: 20rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .header-info {
+    display: inline-block;
+    .image-container {
+      .my-image {
+        width: 18rem;
+        padding: 2rem;
+        float: left;
+      }
+      .heading-text {
+        color: $main-font-color;
+        font-size: 3rem;
+        width: 100%;
+        left: 50%;
+        top: 100%;
+        transform: translate(-40%, -100%);
+      }
+    }
+
+    .about-me {
+      .heading-text {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .main {
+    .projects {
+      grid-template-columns: repeat(2, 1fr);
+      .project {
+        font-size: 0.7rem;
+        .project-heading {
+          font-size: 0.8rem;
+        }
+        .project-icons {
+          .icon {
+            width: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    .img-container {
+      .my-image {
+        width: 12rem;
+        height: 15rem;
+      }
+    }
+    .contact-me {
+      font-size: 0.7rem;
+    }
+    .icons {
+      .icon {
+        width: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .header-info {
+    display: flex;
+    flex-direction: column;
+    .image-container {
+      display: flex;
+      .my-image {
+        width: 20rem;
+        height: 25rem;
+      }
+      .heading-text {
+        font-size: 2rem;
+      }
+    }
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20rem;
+      font-size: 1rem;
+      .icons {
+        justify-content: center;
+      }
+      .description {
+        text-align: center;
+      }
+    }
+  }
+
+  .main {
+    .heading-text {
+      text-align: center;
+    }
+    .projects {
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+      .project {
+        width: 100%;
+        .project-heading {
+          font-size: 1rem;
+        }
+        .project-description {
+          font-size: 0.8rem;
+        }
+        .project-icons {
+          .icon {
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex-direction: column;
+    .contact-me {
+      text-align: center;
+      font-size: 0.8rem;
+      .icons {
+        justify-content: center;
+      }
+    }
+    .img-container {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: stretch;
+      .my-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+$main-font-color: #6d6d6d;
+
+body {
+  background-color: $main-font-color;
+}
